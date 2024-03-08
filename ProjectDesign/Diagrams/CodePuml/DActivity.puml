@@ -1,0 +1,11 @@
+@startuml
+start
+repeat :User selects a tea;
+  :Tea information display (temperature, fragrance, etc.);
+backward:Change the selected tea;
+repeat while (Timer launch)
+:Ringtone to signal the end of the timer;
+:Displaying a message to wish the user a good tea;
+:Redirection to the tea selection page;
+end
+@enduml
