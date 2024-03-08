@@ -11,4 +11,5 @@ If the box is checked, the task is in progress or has already been completed, ot
 - [ ] Create a user profile
 - [ ] Allow logged in users to add their own teas to the tea list
 - [ ] Allow users to add teas to favorites
+
 And more to come soon...
