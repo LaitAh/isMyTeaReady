@@ -1,26 +1,28 @@
+<!--
+  This is the main component of the IsMyTeaReady application.
+
+  Components:
+    - NavbarTop: The top navigation bar component.
+  Scoped Styles:
+    #app: Styles for the root element of the application.
+-->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NavbarTop/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavbarTop from './components/NavbarTop.vue'
 
 export default {
-  name: 'App',
+  name: 'IsMyTeaReady',
   components: {
-    HelloWorld
+    NavbarTop,
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: 'Nunito', Helvetica, Arial, sans-serif;
 }
 </style>
