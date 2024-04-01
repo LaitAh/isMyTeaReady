@@ -45,7 +45,6 @@
           { title: 'Organic Paris For You by Day', description: 'A delicious floral green tea with notes of rose, raspberry and lychee, like a delightful stroll through the streets of Paris.', imageUrl: 'https://images.pexels.com/photos/905485/pexels-photo-905485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
           { title: 'Organic Mint tea', description: 'Fresh and thirst-quenching Chinese green tea flavoured with mint leaves.', imageUrl: 'https://images.pexels.com/photos/3889844/pexels-photo-3889844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
           { title: 'Egyptian Night – Organic Louvre Infusion', description: 'A fresh and sweet infusion that combines peppermint, elderberries and blueberry. It evokes the mystery and opulence of Middle Eastern nights.', imageUrl: 'https://images.pexels.com/photos/1793035/pexels-photo-1793035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
-          { title: 'Egyptian Night – Organic Louvre Infusion', description: 'A fresh and sweet infusion that combines peppermint, elderberries and blueberry. It evokes the mystery and opulence of Middle Eastern nights.', imageUrl: 'https://images.pexels.com/photos/1793035/pexels-photo-1793035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
         ]
       };
     }
@@ -53,11 +52,6 @@
 </script>
 
 <style scoped>
-  h1 {
-    font-size: 1.5em;
-    text-align: center;
-  }
-
   .card-list {
     display: flex;
     flex-wrap: wrap;
