@@ -3,4 +3,6 @@ Welcome to IsMyTeaReady! Our website allows you to choose from a variety of teas
 
 ## App Overview
 
-![Visual of the selected tea page](project-design/Visuals/Visual-SelectedTeaPage_v01.png)
+### Selected tea page
+![Visual of the selected tea page on desktop](project-design/Visuals/Visual-SelectedTeaPage-Desktop_v01.png)
+![Visual of the selected tea page on mobile](project-design/Visuals/Visual-SelectedTeaPage-Mobile_v01.png)
