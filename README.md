@@ -6,9 +6,8 @@ Welcome to IsMyTeaReady! Our website allows you to choose from a variety of teas
 ## App Overview
 
 ### Teas list
-![Visual of the list of teas on desktop](project-design/Visuals/Visual-TeasListPage-Desktop_v01)
-![Visual of the list of teas on mobile](project-design/Visuals/Visual-TeasList-Mobile_v01.png)
+![Visual of the list of teas on desktop](project-design/Visuals/Visual-TeasListPage-Desktop_v01.png)
+![Visual of the list of teas on mobile](project-design/Visuals/Visual-TeasListPage-Mobile_v01.png)
 
 ### Selected tea page
-![Visual of the selected tea page on desktop](project-design/Visuals/Visual-SelectedTeaPage-Desktop_v01.png)
-![Visual of the selected tea page on mobile](project-design/Visuals/Visual-SelectedTeaPage-Mobile_v01.png)
+![Visual of the selected tea page on desktop and mobile](project-design/Visuals/Visual-SelectedTeaPage_v01.png)
