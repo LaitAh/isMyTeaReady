@@ -26,6 +26,8 @@
       <!-- Affichage de l'icône du menu burger ou de la croix -->
       <div v-if="isMobile" class="toggle-icon" @click="toggleMenu">
         <div v-if="!isMenuActive" class="burger-lines"></div>
+        <div v-if="!isMenuActive" class="burger-lines"></div>
+        <div v-if="!isMenuActive" class="burger-lines"></div>
         <div v-else class="close-icon"></div>
       </div>
       <!-- Menu des liens de navigation -->
