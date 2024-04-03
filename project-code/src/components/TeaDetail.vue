@@ -1,11 +1,37 @@
+<!--
+Description:
+  This component represents the detailed view of a specific tea item. It displays information about the tea such as its title, image, description, suggestion of preparation, additional message, ingredients, and provides buttons for navigation and timer functionality.
+Template:
+  - The template section contains HTML markup that structures the layout of the tea detail view.
+  - It includes placeholders for dynamic data binding using Vue.js syntax.
+  - It also defines buttons for navigating back to the tea list and for starting a timer.
+Script:
+  - The script section contains JavaScript logic for fetching data and defining component methods.
+  - It imports the necessary functionalities from Vuex for managing state.
+  - The computed property retrieves the selected tea data from the Vuex store.
+  - The methods section defines functions for navigating back to the tea list and handling the timer functionality (currently a placeholder).
+  - In the created lifecycle hook, it retrieves the tea ID from the route parameters and logs it to the console.
+Style:
+  - The style section contains scoped CSS for styling the component.
+  - It defines styles for the layout, images, text, buttons, and responsiveness.
+Dependencies:
+  - Vue.js
+  - Vuex
+  - Vue Router
+Usage:
+  - This component should be used within a Vue.js application to display detailed information about a selected tea item.
+  - It relies on data stored in Vuex, accessed through getters and mutations.
+  - Navigation between different views is handled by Vue Router.
+-->
+
 <template>
-  <h1>{{ tea.name }}</h1>
+  <h1>{{ tea.title }}</h1>
   <div class="tea-detail">
-    <img :src="tea.imageUrl" :alt="tea.name" class="tea-image" />
+    <img :src="tea.imageUrl" :alt="tea.title" class="tea-image" />
     <div class="tea-infos">
-      <div v-if="tea.description" class="description">
-        <h3 class="tea-description-title title">Description</h3>
-        <p class="tea-description-text text" v-html="tea.description"></p>
+      <div v-if="tea.descriptionLong" class="descriptionLong">
+        <h3 class="tea-descriptionLong-title title">Description</h3>
+        <p class="tea-descriptionLong-text text" v-html="tea.descriptionLong"></p>
       </div>
       <div v-if="tea.suggestion" class="suggestion">
         <h3 class="tea-suggestion-title title">Suggestion of preparation</h3>
@@ -31,27 +57,27 @@
 
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  data() {
-    return {
-      tea: {
-        name: 'Blue Mountain',
-        imageUrl: 'https://images.pexels.com/photos/9184612/pexels-photo-9184612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        description: 'Exclusive to Palais des Thés, Blue Mountain is a gourmet, fruity blend. Its notes invoke honey, lavender, cornflower, strawberries and rhubarb, and complement one another alongside the intensity of black tea. <br/>An ideal tea for an afternoon tea break, it has a very round texture which brings out its gourmet flavours. <br/>It also tastes great as an iced tea!',
-        suggestion: 'Take 6 g of tea leaves per 30 cl of water and heat to 95°C. Leave to infuse for 4 to 5 minutes.',
-        other: 'Give in to indulgence with Blue Mountain tea! Its sweet, floral notes are in perfect counterpoint to dark chocolate.',
-        ingredients: 'black tea (India, China, Sri Lanka) (95%), flavours (including strawberry) (4%), cornflower (1%).',
-      }
-    };
+  computed: {
+    ...mapGetters(['selectedTea']),
+    tea() {
+      return this.selectedTea;
+    }
   },
   methods: {
-      backTeas() {
-        this.$router.push('/');
-      },
-      timer() {
-
-      }
+    backTeas() {
+      this.$router.go(-1);
+    },
+    timer() {
+      // TODO
     }
+  },
+  created() {
+    const teaId = this.$route.params.teaId;
+    console.log("Tea ID: ", teaId);
+  }
 };
 </script>
 
