@@ -39,7 +39,10 @@
     },
     methods: {
       selectCard() {
-        this.$router.push('/tea-details');
+        this.$router.push({
+          name: 'TeaDetail',
+          params: { teaName: this.title }
+        });
       }
     }
   };
