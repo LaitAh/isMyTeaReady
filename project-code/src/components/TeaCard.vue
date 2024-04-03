@@ -91,18 +91,16 @@
     margin-top: 10px;
     padding: 0.75em 2em;
     background-color: #FF7A45;
+    border: solid #FF7A45 1px;
     color: white;
     font-weight: 600;
     font-size: 1em;
-    border: none;
     border-radius: 30px;
   }
   
   button:hover {
     background-color: white;
     color: #FF7A45;
-    border: solid #FF7A45 1px;
-    border-radius: 10px;
   }
 </style>
   

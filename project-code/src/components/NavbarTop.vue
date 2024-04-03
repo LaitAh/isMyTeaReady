@@ -33,7 +33,7 @@
       <!-- Menu des liens de navigation -->
       <div class="navbar-menu" :class="{ 'is-active': isMenuActive && isMobile }">
         <router-link class="navbar-element" to="/">Select a tea</router-link>
-        <router-link class="navbar-element" to="/about">About</router-link>
+        <router-link class="navbar-element" to="">About</router-link>
       </div>
     </div>
   </nav>
@@ -108,6 +108,8 @@ export default {
 
   .navbar-element {
     margin-left: 1em;
+    text-decoration: none;
+    color: white;
   }
 
   .navbar-element:hover {
