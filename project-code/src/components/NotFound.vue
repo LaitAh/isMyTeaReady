@@ -1,4 +1,23 @@
-<!-- NotFound.vue -->
+<!-- 
+Description:
+  This component represents a 404 Not Found page, displayed when a user navigates to a non-existent route.
+Template:
+  - The template section contains HTML markup for displaying the message "Page not found" along with a 404 error code and a brief description.
+  - It uses semantic HTML elements for structure and readability.
+Script:
+  - The script section is empty as there is no JavaScript functionality required for this component.
+Style:
+  - The style section contains scoped CSS for styling the component.
+  - It applies styles to center align the content and adjust font sizes based on screen width.
+  - The 404 error message is styled to be large and bold for emphasis, with a distinct color (#FF7A45).
+  - The description text is styled with a slightly smaller font size and increased font weight for clarity.
+Dependencies:
+  - Vue.js
+Usage:
+  - This component should be used within a Vue.js application to handle 404 Not Found errors.
+  - It is automatically rendered when a user navigates to a route that does not exist within the application.
+  - The component provides a user-friendly message to inform users about the missing page and guide them accordingly.
+-->
 <template>
   <div>
     <h1>Page not found</h1>

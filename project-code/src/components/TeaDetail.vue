@@ -1,7 +1,33 @@
+<!--
+Description:
+  This component represents the detailed view of a specific tea item. It displays information about the tea such as its title, image, description, suggestion of preparation, additional message, ingredients, and provides buttons for navigation and timer functionality.
+Template:
+  - The template section contains HTML markup that structures the layout of the tea detail view.
+  - It includes placeholders for dynamic data binding using Vue.js syntax.
+  - It also defines buttons for navigating back to the tea list and for starting a timer.
+Script:
+  - The script section contains JavaScript logic for fetching data and defining component methods.
+  - It imports the necessary functionalities from Vuex for managing state.
+  - The computed property retrieves the selected tea data from the Vuex store.
+  - The methods section defines functions for navigating back to the tea list and handling the timer functionality (currently a placeholder).
+  - In the created lifecycle hook, it retrieves the tea ID from the route parameters and logs it to the console.
+Style:
+  - The style section contains scoped CSS for styling the component.
+  - It defines styles for the layout, images, text, buttons, and responsiveness.
+Dependencies:
+  - Vue.js
+  - Vuex
+  - Vue Router
+Usage:
+  - This component should be used within a Vue.js application to display detailed information about a selected tea item.
+  - It relies on data stored in Vuex, accessed through getters and mutations.
+  - Navigation between different views is handled by Vue Router.
+-->
+
 <template>
-  <h1>{{ tea.name }}</h1>
+  <h1>{{ tea.title }}</h1>
   <div class="tea-detail">
-    <img :src="tea.imageUrl" :alt="tea.name" class="tea-image" />
+    <img :src="tea.imageUrl" :alt="tea.title" class="tea-image" />
     <div class="tea-infos">
       <div v-if="tea.descriptionLong" class="descriptionLong">
         <h3 class="tea-descriptionLong-title title">Description</h3>
@@ -31,46 +57,27 @@
 
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  props: {
-    title: String,
-    description: String,
-    imageUrl: String,
-    teaBrewingTime: Number,
-    descriptionLong: String,
-    suggestion: String,
-    other: String,
-    ingredients: String
-  },
-  created() {
-    console.log(this.$route);
-    console.log('Données du thé :', {
-      name: this.$route.params.teaName,
-      imageUrl: this.$route.params.teaImageUrl,
-      descriptionLong: this.$route.params.teaDescriptionLong,
-      suggestion: this.$route.params.teaSuggestion,
-      other: this.$route.params.teaOther,
-      ingredients: this.$route.params.teaIngredients,
-    });
-    this.tea = {
-      name: this.$route.params.teaName,
-      imageUrl: this.$route.params.teaImageUrl,
-      brewingTime : this.$route.params.teaBrewingTime,
-      description: this.$route.params.teaDescription,
-      descriptionLong: this.$route.params.teaDescriptionLong,
-      suggestion: this.$route.params.teaSuggestion,
-      other: this.$route.params.teaOther,
-      ingredients: this.$route.params.teaIngredients,
+  computed: {
+    ...mapGetters(['selectedTea']),
+    tea() {
+      return this.selectedTea;
     }
   },
   methods: {
-      backTeas() {
-        this.$router.push('/');
-      },
-      timer() {
-
-      }
+    backTeas() {
+      this.$router.go(-1);
+    },
+    timer() {
+      // TODO
     }
+  },
+  created() {
+    const teaId = this.$route.params.teaId;
+    console.log("Tea ID: ", teaId);
+  }
 };
 </script>
 
