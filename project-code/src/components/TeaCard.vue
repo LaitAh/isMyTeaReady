@@ -35,18 +35,33 @@
     props: {
       title: String,
       description: String,
-      imageUrl: String
+      brewingTime: Number,
+      imageUrl: String,
+      descriptionLong: String,
+      suggestion: String,
+      other: String,
+      ingredients: String
     },
     methods: {
       selectCard() {
         this.$router.push({
           name: 'TeaDetail',
-          params: { teaName: this.title }
+          params: {
+            teaName: this.title,
+            teaDescription: this.description,
+            teaBrewingTime: this.brewingTime,
+            teaImageUrl: this.imageUrl,
+            teaDescriptionLong: this.descriptionLong,
+            teaSuggestion: this.suggestion,
+            teaOther: this.other,
+            teaIngredients: this.ingredients
+          }
         });
       }
     }
   };
 </script>
+
   
 <style scoped>
   .card {

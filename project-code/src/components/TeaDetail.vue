@@ -3,9 +3,9 @@
   <div class="tea-detail">
     <img :src="tea.imageUrl" :alt="tea.name" class="tea-image" />
     <div class="tea-infos">
-      <div v-if="tea.description" class="description">
-        <h3 class="tea-description-title title">Description</h3>
-        <p class="tea-description-text text" v-html="tea.description"></p>
+      <div v-if="tea.descriptionLong" class="descriptionLong">
+        <h3 class="tea-descriptionLong-title title">Description</h3>
+        <p class="tea-descriptionLong-text text" v-html="tea.descriptionLong"></p>
       </div>
       <div v-if="tea.suggestion" class="suggestion">
         <h3 class="tea-suggestion-title title">Suggestion of preparation</h3>
@@ -32,17 +32,36 @@
 
 <script>
 export default {
-  data() {
-    return {
-      tea: {
-        name: 'Blue Mountain',
-        imageUrl: 'https://images.pexels.com/photos/9184612/pexels-photo-9184612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        description: 'Exclusive to Palais des Thés, Blue Mountain is a gourmet, fruity blend. Its notes invoke honey, lavender, cornflower, strawberries and rhubarb, and complement one another alongside the intensity of black tea. <br/>An ideal tea for an afternoon tea break, it has a very round texture which brings out its gourmet flavours. <br/>It also tastes great as an iced tea!',
-        suggestion: 'Take 6 g of tea leaves per 30 cl of water and heat to 95°C. Leave to infuse for 4 to 5 minutes.',
-        other: 'Give in to indulgence with Blue Mountain tea! Its sweet, floral notes are in perfect counterpoint to dark chocolate.',
-        ingredients: 'black tea (India, China, Sri Lanka) (95%), flavours (including strawberry) (4%), cornflower (1%).',
-      }
-    };
+  props: {
+    title: String,
+    description: String,
+    imageUrl: String,
+    teaBrewingTime: Number,
+    descriptionLong: String,
+    suggestion: String,
+    other: String,
+    ingredients: String
+  },
+  created() {
+    console.log(this.$route);
+    console.log('Données du thé :', {
+      name: this.$route.params.teaName,
+      imageUrl: this.$route.params.teaImageUrl,
+      descriptionLong: this.$route.params.teaDescriptionLong,
+      suggestion: this.$route.params.teaSuggestion,
+      other: this.$route.params.teaOther,
+      ingredients: this.$route.params.teaIngredients,
+    });
+    this.tea = {
+      name: this.$route.params.teaName,
+      imageUrl: this.$route.params.teaImageUrl,
+      brewingTime : this.$route.params.teaBrewingTime,
+      description: this.$route.params.teaDescription,
+      descriptionLong: this.$route.params.teaDescriptionLong,
+      suggestion: this.$route.params.teaSuggestion,
+      other: this.$route.params.teaOther,
+      ingredients: this.$route.params.teaIngredients,
+    }
   },
   methods: {
       backTeas() {

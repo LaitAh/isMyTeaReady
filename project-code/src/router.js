@@ -6,7 +6,7 @@ import NotFound from './components/NotFound.vue';
 
 const routes = [
   { path: '/', name: 'TeasList', component: TeasList },
-  { path: '/tea-details/:teaName', name: 'TeaDetail', component: TeaDetail },
+  { path: '/tea-details/:teaName/:teaImageUrl/:teaDescription/:teaBrewingTime/:teaDescriptionLong?/:teaSuggestion?/:teaOther?/:teaIngredients?', name: 'TeaDetail', component: TeaDetail },
   { path: '/:pathMatch(.*)', component: NotFound },
 ]
 
