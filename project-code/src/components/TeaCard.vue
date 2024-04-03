@@ -31,38 +31,37 @@
 </template>
   
 <script>
-  export default {
-    props: {
-      title: String,
-      description: String,
-      brewingTime: Number,
-      imageUrl: String,
-      descriptionLong: String,
-      suggestion: String,
-      other: String,
-      ingredients: String
+import { mapMutations } from 'vuex';
+
+export default {
+  props: {
+    imageUrl: {
+      type: String,
+      required: true
     },
-    methods: {
-      selectCard() {
-        this.$router.push({
-          name: 'TeaDetail',
-          params: {
-            teaName: this.title,
-            teaDescription: this.description,
-            teaBrewingTime: this.brewingTime,
-            teaImageUrl: this.imageUrl,
-            teaDescriptionLong: this.descriptionLong,
-            teaSuggestion: this.suggestion,
-            teaOther: this.other,
-            teaIngredients: this.ingredients
-          }
-        });
-      }
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    teaId: {
+      type: String,
+      required: true
     }
-  };
+  },
+  methods: {
+    ...mapMutations(['setSelectedTea']),
+    selectCard() {
+      this.setSelectedTea(this.teaId);
+      this.$router.push({ name: 'TeaDetail', params: { teaId: this.teaId } });
+    }
+  },
+};
 </script>
 
-  
 <style scoped>
   .card {
     border: 1px solid #ccc;

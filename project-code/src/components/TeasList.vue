@@ -23,15 +23,11 @@
   <div class="card-list">
     <div v-for="(card, index) in cards.length" :key="index" class="card-wrapper">
       <template v-if="cards[index]">
-        <TeaCard
-          :title="cards[index].title"
-          :description="cards[index].description"
+        <TeaCard 
+          :title="cards[index].title" 
+          :description="cards[index].description" 
           :imageUrl="cards[index].imageUrl"
-          :brewingTime="cards[index].brewingTime"
-          :descriptionLong="cards[index].descriptionLong"
-          :suggestion="cards[index].suggestion"
-          :other="cards[index].other"
-          :ingredients="cards[index].ingredients"
+          :teaId="cards[index]" 
         />
       </template>
     </div>
@@ -39,6 +35,7 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex';
   import TeaCard from './TeaCard.vue';
 
   export default {
@@ -110,6 +107,13 @@
           },
         ]
       };
+    },
+    methods: {
+      ...mapMutations(['setSelectedTea']),
+      selectCard(tea) {
+        this.setSelectedTea(tea);
+        this.$router.push({ name: 'TeaDetail', params: { teaName: tea.title } });
+      }
     }
   };
 </script>
