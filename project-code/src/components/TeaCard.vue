@@ -1,21 +1,28 @@
 <!--
-  This component represents a card displaying information about a tea.
-
-  Props:
-    title: The title of the tea.
-    description: A brief description of the tea.
-    imageUrl: The URL of the image representing the tea.
-  Methods:
-    selectCard: Method triggered when the "Select" button is clicked. It navigates to the details page of the selected tea.
-  Scoped Styles:
-    .card: Styles the container for the tea card.
-    .image-container: Styles the container for the tea image.
-    .card-image: Styles the tea image within the card.
-    .content: Styles the content section of the card, including title, description, and button.
-    .title: Styles the title of the tea.
-    .description: Styles the description of the tea.
-    button: Styles the "Select" button.
-    button:hover: Styles the "Select" button on hover.
+Description:
+  This component represents a card displaying brief information about a tea item. It includes an image, title, description, and a button to select the tea for detailed view.
+Template:
+  - The template section contains HTML markup that structures the layout of the tea card.
+  - It includes placeholders for dynamic data binding using Vue.js syntax.
+  - It defines a button for selecting the tea item.
+Script:
+  - The script section contains JavaScript logic for handling component functionality.
+  - It imports the necessary functionalities from Vuex for managing state mutations.
+  - The props section defines the properties expected by the component, such as imageUrl, title, description, and teaId.
+  - The methods section includes a function to set the selected tea in the Vuex store and navigate to the detailed view of the selected tea.
+Style:
+  - The style section contains scoped CSS for styling the component.
+  - It defines styles for the card layout, image, title, description, and button.
+  - Hover styles for the button are also defined to provide visual feedback.
+Dependencies:
+  - Vue.js
+  - Vuex
+  - Vue Router
+Usage:
+  - This component should be used within a Vue.js application to display brief information about tea items in a card format.
+  - It relies on data passed through props for displaying the tea details.
+  - Selection of a tea item triggers navigation to the detailed view of the selected tea using Vue Router.
+  - The selected tea information is stored in the Vuex store for access across the application.
 -->
 <template>
   <div class="card">

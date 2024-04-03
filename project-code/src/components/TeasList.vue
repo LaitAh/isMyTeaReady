@@ -1,22 +1,26 @@
 <!--
-  This component represents the tea selection page, where users can view a list of available teas.
-
-  Props:
-    None
-  Data:
-    cards: An array of objects representing individual teas. Each object has the following properties:
-      - title: The title of the tea.
-      - description: A brief description of the tea.
-      - imageUrl: The URL of the image representing the tea.
-  Methods:
-    None
-  Components:
-    TeaCard: A child component responsible for rendering an individual tea card.
-  Scoped Styles:
-    h1: Styles the heading for the tea selection page.
-    .card-list: Styles the container for the list of tea cards.
-    .card-wrapper: Styles the wrapper for each individual tea card.
-    @media screen and (max-width: 767px): Styles applied when the screen width is less than or equal to 767px.
+Description:
+  This component displays a list of tea cards, allowing users to select a tea for detailed view.
+Template:
+  - The template section contains HTML markup that structures the layout of the tea list.
+  - It uses a loop to iterate over the list of tea cards and includes the TeaCard component for each tea item.
+Script:
+  - The script section contains JavaScript logic for handling component functionality.
+  - It imports the necessary functionalities from Vuex for managing state mutations.
+  - The data section initializes the list of tea cards with sample data.
+  - The methods section includes a function to set the selected tea in the Vuex store and navigate to the detailed view of the selected tea.
+Style:
+  - The style section contains scoped CSS for styling the component.
+  - It defines styles for the layout of the card list and adjusts the card wrapper width based on screen size.
+Dependencies:
+  - Vue.js
+  - Vuex
+  - Vue Router
+Usage:
+  - This component should be used within a Vue.js application to display a list of tea cards.
+  - It relies on data stored within the component for displaying the tea card information.
+  - Selection of a tea card triggers navigation to the detailed view of the selected tea using Vue Router.
+  - The selected tea information is stored in the Vuex store for access across the application.
 -->
 <template>
   <h1>Select your tea</h1>

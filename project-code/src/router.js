@@ -1,3 +1,8 @@
+/*
+Description:
+  This file contains the configuration for Vue Router, which manages the routing functionality of the Vue.js application. It defines the routes for different views/pages of the application.
+*/
+
 import { createWebHistory, createRouter } from 'vue-router';
 import TeasList from './components/TeasList.vue';
 import TeaDetail from './components/TeaDetail.vue';
