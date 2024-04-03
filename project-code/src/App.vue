@@ -9,18 +9,16 @@
 -->
 <template>
   <NavbarTop/>
-  <TeasList/>
+  <router-view></router-view>
 </template>
 
 <script>
 import NavbarTop from './components/NavbarTop.vue'
-import TeasList from './components/TeasList.vue'
 
 export default {
   name: 'IsMyTeaReady',
   components: {
     NavbarTop,
-    TeasList,
   }
 }
 </script>
