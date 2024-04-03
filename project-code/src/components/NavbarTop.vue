@@ -26,12 +26,14 @@
       <!-- Affichage de l'icône du menu burger ou de la croix -->
       <div v-if="isMobile" class="toggle-icon" @click="toggleMenu">
         <div v-if="!isMenuActive" class="burger-lines"></div>
+        <div v-if="!isMenuActive" class="burger-lines"></div>
+        <div v-if="!isMenuActive" class="burger-lines"></div>
         <div v-else class="close-icon"></div>
       </div>
       <!-- Menu des liens de navigation -->
       <div class="navbar-menu" :class="{ 'is-active': isMenuActive && isMobile }">
         <router-link class="navbar-element" to="/">Select a tea</router-link>
-        <router-link class="navbar-element" to="/about">About</router-link>
+        <router-link class="navbar-element" to="">About</router-link>
       </div>
     </div>
   </nav>
@@ -106,6 +108,8 @@ export default {
 
   .navbar-element {
     margin-left: 1em;
+    text-decoration: none;
+    color: white;
   }
 
   .navbar-element:hover {
