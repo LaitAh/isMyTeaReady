@@ -25,54 +25,93 @@ Usage:
 -->
 
 <template>
-  <h1>{{ tea.title }}</h1>
-  <div class="tea-detail">
-    <img :src="tea.imageUrl" :alt="tea.title" class="tea-image" />
-    <div class="tea-infos">
-      <div v-if="tea.descriptionLong" class="descriptionLong">
-        <h3 class="tea-descriptionLong-title title">Description</h3>
-        <p class="tea-descriptionLong-text text" v-html="tea.descriptionLong"></p>
+  <div class="tea-detail-container">
+    <h1>{{ tea.title }}</h1>
+    <div class="tea-detail">
+      <img :src="tea.imageUrl" :alt="tea.title" class="tea-image" />
+      <div class="tea-infos">
+        <div v-if="tea.descriptionLong" class="descriptionLong">
+          <h3 class="tea-descriptionLong-title title">Description</h3>
+          <p class="tea-descriptionLong-text text" v-html="tea.descriptionLong"></p>
+        </div>
+        <div v-if="tea.suggestion" class="suggestion">
+          <h3 class="tea-suggestion-title title">Suggestion of preparation</h3>
+          <p class="tea-suggestion-text text">{{ tea.suggestion }}</p>
+        </div>
+        <div v-if="tea.other" class="other">
+          <h3 class="tea-other-title title">Tea and dishes message</h3>
+          <p class="tea-other-text text">{{ tea.other }}</p>
+        </div>
+        <div v-if="tea.ingredients" class="ingredients">
+          <h3 class="tea-ingredients-title title">Tea ingredients</h3>
+          <p class="tea-ingredients-text text">{{ tea.ingredients }}</p>
+        </div>
       </div>
-      <div v-if="tea.suggestion" class="suggestion">
-        <h3 class="tea-suggestion-title title">Suggestion of preparation</h3>
-        <p class="tea-suggestion-text text">{{ tea.suggestion }}</p>
-      </div>
-      <div v-if="tea.other" class="other">
-        <h3 class="tea-other-title title">Tea and dishes message</h3>
-        <p class="tea-other-text text">{{ tea.other }}</p>
-      </div>
-      <div v-if="tea.ingredients" class="ingredients">
-        <h3 class="tea-ingredients-title title">Tea ingredients</h3>
-        <p class="tea-ingredients-text text">{{ tea.ingredients }}</p>
-      </div>
-      </div>
-  </div>
-  <div class="tea-button">
-    <button @click="backTeas" class="button-return">
-      ←
-    </button>
-    <button @click="timer">Start timer</button>
+    </div>
+    <div class="tea-button">
+      <button @click="backTeas" class="button-return">←</button>
+      <template v-if="!timerRunning">
+        <button @click="startTimer">Start Timer</button>
+      </template>
+      <template v-else>
+        <button>{{ timeRemainingText }}</button>
+      </template>
+    </div>
+    <ModalTimerEnd ref="modal" :closeOverlay="closeOverlay" />
+    <div class="overlay" v-if="showModal"></div>
   </div>
 </template>
 
 
 <script>
 import { mapGetters } from 'vuex';
+import ModalTimerEnd from './ModalTimerEnd.vue';
 
 export default {
+  components: {
+    ModalTimerEnd
+  },
+  data() {
+    return {
+      timeRemaining: 1, // Time in seconds
+      timerRunning: false,
+      timerInterval: null,
+      showModal: false,
+    };
+  },
   computed: {
     ...mapGetters(['selectedTea']),
     tea() {
       return this.selectedTea;
+    },
+    timeRemainingText() {
+      console.log(this.selectedTea.brewingTime);
+      const minutes = Math.floor(this.timeRemaining / 60);
+      const seconds = this.timeRemaining % 60;
+      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
   },
   methods: {
     backTeas() {
       this.$router.go(-1);
     },
-    timer() {
-      // TODO
-    }
+    startTimer() {
+      this.timerRunning = true;
+      this.timerInterval = setInterval(() => {
+        this.timeRemaining--;
+        if (this.timeRemaining <= 0) {
+          clearInterval(this.timerInterval);
+          this.timerRunning = false;
+          if (this.$refs.modal) {
+            this.showModal = true;
+            this.$refs.modal.open();
+          }
+        }
+      }, 1000);
+    },
+    closeOverlay() {
+      this.showModal = false;
+    },
   },
   created() {
     const teaId = this.$route.params.teaId;
@@ -82,6 +121,28 @@ export default {
 </script>
 
 <style scoped>
+.tea-detail-container {
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 999;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
 .tea-infos {
   display: flex;
   flex-direction: column;

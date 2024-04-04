@@ -10,6 +10,13 @@
 
 <script>
 export default {
+  props: {
+    closeOverlay: {
+      type: Function,
+      default: () => {}
+    }
+  },
+
   data() {
     return {
       show: false
@@ -26,6 +33,7 @@ export default {
     },
     close() {
       this.show = false;
+      this.closeOverlay();
     }
   }
 };
