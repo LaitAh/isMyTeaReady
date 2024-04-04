@@ -1,3 +1,29 @@
+<!--
+Description:
+  This component represents a modal that notifies the user when the timer for their tea preparation has ended. It displays a message indicating that the tea is ready, along with a close button.
+Template:
+  - The template section contains HTML markup defining the structure of the modal.
+  - It includes placeholders for dynamic data binding using Vue.js syntax.
+  - The modal consists of a title, a close button, and a container for the message.
+Script:
+  - The script section contains JavaScript logic for controlling the behavior of the modal.
+  - It defines a prop called closeOverlay, which is a function passed from the parent component to close the overlay when the modal is closed.
+  - The data section manages the visibility of the modal.
+  - The methods section includes functions to open and close the modal.
+  - The open method sets the show property to true and plays an audio file when the modal is opened.
+  - The close method sets the show property to false and calls the closeOverlay function provided by the parent component.
+Style:
+  - The style section contains scoped CSS for styling the modal component.
+  - It defines the layout, appearance, and responsiveness of the modal.
+  - The modal is centered horizontally on the screen.
+  - It has a maximum width of 75vw for mobile screens and 50vw for screens larger than 768px.
+Dependencies:
+  - Vue.js
+Usage:
+  - This component should be used within a Vue.js application to display a modal notification when the timer for tea preparation ends.
+  - It relies on data passed from the parent component to control its visibility and behavior.
+-->
+
 <template>
   <div class="modal" v-if="show">
     <div class="modal-content">

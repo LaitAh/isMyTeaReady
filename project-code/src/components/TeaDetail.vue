@@ -4,16 +4,17 @@ Description:
 Template:
   - The template section contains HTML markup that structures the layout of the tea detail view.
   - It includes placeholders for dynamic data binding using Vue.js syntax.
-  - It also defines buttons for navigating back to the tea list and for starting a timer.
+  - The template displays various details of the tea item including title, image, description, suggestion, additional message, and ingredients.
 Script:
   - The script section contains JavaScript logic for fetching data and defining component methods.
   - It imports the necessary functionalities from Vuex for managing state.
   - The computed property retrieves the selected tea data from the Vuex store.
-  - The methods section defines functions for navigating back to the tea list and handling the timer functionality (currently a placeholder).
+  - The methods section defines functions for navigating back to the tea list, starting the timer, and closing the overlay.
   - In the created lifecycle hook, it retrieves the tea ID from the route parameters and logs it to the console.
 Style:
   - The style section contains scoped CSS for styling the component.
   - It defines styles for the layout, images, text, buttons, and responsiveness.
+  - The component is responsive, adapting its layout based on screen size.
 Dependencies:
   - Vue.js
   - Vuex
