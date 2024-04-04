@@ -39,6 +39,7 @@ export default {
 
 .modal-content {
   width: 50vw;
+  background-color: white;
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
