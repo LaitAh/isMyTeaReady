@@ -55,7 +55,7 @@ export default {
       required: true
     },
     teaId: {
-      type: String,
+      type: Object,
       required: true
     }
   },

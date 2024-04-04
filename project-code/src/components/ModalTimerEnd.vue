@@ -46,13 +46,17 @@ export default {
 }
 
 .modal-content {
-  width: 50vw;
+  width: 75vw;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
   margin: 10px;
   text-align: center;
+}
+
+h2 {
+  padding: 10px;
 }
 
 button {
@@ -63,6 +67,12 @@ button {
   font-weight: 600;
   font-size: 2em;
   border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-content {
+    width: 50vw;
+  }
 }
 </style>
   
