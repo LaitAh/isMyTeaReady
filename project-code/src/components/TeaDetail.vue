@@ -74,7 +74,6 @@ export default {
   },
   data() {
     return {
-      timeRemaining: 1, // Time in seconds
       timerRunning: false,
       timerInterval: null,
       showModal: false,
