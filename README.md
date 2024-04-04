@@ -11,3 +11,6 @@ Welcome to IsMyTeaReady! Our website allows you to choose from a variety of teas
 
 ### Selected tea page
 ![Visual of the selected tea page on desktop and mobile](project-design/Visuals/Visual-SelectedTeaPage_v01.png)
+
+### Launching the timer
+![Visual of the selected tea page with tbe timer launch](project-design/Visuals/Visual-SelectedTeaPage-Timer_v01.png)
