@@ -85,9 +85,8 @@ export default {
       return this.selectedTea;
     },
     timeRemainingText() {
-      console.log(this.selectedTea.brewingTime);
-      const minutes = Math.floor(this.timeRemaining / 60);
-      const seconds = this.timeRemaining % 60;
+      const minutes = Math.floor(this.selectedTea.brewingTime / 60);
+      const seconds = this.selectedTea.brewingTime % 60;
       return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
   },
@@ -98,8 +97,8 @@ export default {
     startTimer() {
       this.timerRunning = true;
       this.timerInterval = setInterval(() => {
-        this.timeRemaining--;
-        if (this.timeRemaining <= 0) {
+        this.selectedTea.brewingTime--;
+        if (this.selectedTea.brewingTime <= 0) {
           clearInterval(this.timerInterval);
           this.timerRunning = false;
           if (this.$refs.modal) {
